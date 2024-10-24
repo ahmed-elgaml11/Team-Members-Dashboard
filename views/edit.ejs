@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Member Information</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Member Information</h1>
+
+        <!-- Form for editing member data -->
+        <form action="/edit/<%= member._id %>" method="POST" enctype="multipart/form-data"> <!-- enctype important for image upload -->
+
+            <!-- Name -->
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" name="Name" value="<%= member.Name %>" required>
+
+            <!-- Age -->
+            <label for="Age">Age:</label>
+            <input type="number" id="Age" name="Age" min="0" value="<%= member.Age %>" required>
+
+            <!-- University -->
+            <label for="University">University:</label>
+            <input type="text" id="University" name="University" value="<%= member.University %>" required>
+
+            <!-- Email -->
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" name="Email" value="<%= member.Email %>" required>
+
+            <!-- Phone Number -->
+            <label for="Phone">Phone Number:</label>
+            <input type="text" id="Phone" name="Phone" value="<%= member.Phone %>" required>
+
+            <!-- Technical Committee -->
+            <label for="Technical_Committee">Technical Committee:</label>
+            <input type="checkbox" id="Technical_Committee" name="Technical_Committee" <% if (member.Technical_Committee) { %>checked<% } %>>
+
+            <!-- Non-Technical Committee -->
+            <label for="NonTechnical_Committee">Non-Technical Committee:</label>
+            <input type="checkbox" id="NonTechnical_Committee" name="NonTechnical_Committee" <% if (member.NonTechnical_Committee) { %>checked<% } %>>
+
+            <!-- Image Upload -->
+            <label for="image">Upload New Profile Image (Optional):</label>
+            <input type="file" id="image_upload" name="image" accept="image/*">
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-submit">Update Member Info</button>
+        </form>
+    </div>
+</body>
+</html>

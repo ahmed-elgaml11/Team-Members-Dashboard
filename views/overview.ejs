@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Overview</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>All Team Members</h1>
+
+        <div class="add-member">
+            <a href="/add" class="btn btn-add">Add New Member</a>
+        </div>
+        
+        <% if (members.length > 0) { %>
+            <div class="members-grid">
+                <% members.forEach(member => { %>
+                    <div class="member-card">
+                        <h2><%= member.Name %></h2>
+                        <p><strong>Age:</strong> <%= member.Age %></p>
+                        <p><strong>University:</strong> <%= member.University %></p>
+
+                        <div class="member-actions">
+                            <!-- View Details Button -->
+                            <a href="/details/<%= member._id %>" class="btn btn-view">View Details</a>
+                        </div>
+                        <p>------------------------------------------------------------------------------------------------------</p>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p>No members available.</p>
+        <% } %>
+
+    </div>
+</body>
+</html>

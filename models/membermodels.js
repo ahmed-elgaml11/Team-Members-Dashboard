@@ -33,7 +33,7 @@ const memberschema = new Schema({
         required: true,
         default: false
     },
-    image_upload:{
+    image:{
         type: String,
     }
 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Data Entry Form</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Member Data Entry Form</h1>
+        
+        <!-- Form for collecting member data -->
+        <form action="/add" method="POST" enctype="multipart/form-data"> <!-- enctype is important for image upload -->
+
+            <!-- Name -->
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" name="Name" required>
+
+            <!-- Age -->
+            <label for="Age">Age:</label>
+            <input type="number" id="Age" name="Age" min="0" required>
+
+            <!-- University -->
+            <label for="University">University:</label>
+            <input type="text" id="University" name="University" required>
+
+            <!-- Email -->
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" name="Email" required>
+
+            <!-- Phone Number -->
+            <label for="Phone">Phone Number:</label>
+            <input type="text" id="Phone" name="Phone" required>
+
+            <!-- Technical Committee -->
+            <label for="Technical_Committee">Technical Committee:</label>
+            <input type="checkbox" id="Technical_Committee" name="Technical_Committee">
+
+            <!-- Non-Technical Committee -->
+            <label for="NonTechnical_Committee">Non-Technical Committee:</label>
+            <input type="checkbox" id="NonTechnical_Committee" name="NonTechnical_Committee">
+
+            <!-- Image Upload -->
+            <label for="image">Upload Profile Image (Optional):</label>
+            <input type="file" id="image_upload" name="image" accept="image/*">
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-submit">Submit Member Info</button>
+        </form>
+    </div>
+</body>
+</html>

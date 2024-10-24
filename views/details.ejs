@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Detail</title>
+    <link rel="stylesheet" href="/styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Member Details</h1>
+        <div class="member-info">
+            <h2><%= member.Name %></h2>
+            <p><strong>Age:</strong> <%= member.Age %></p>
+            <p><strong>University:</strong> <%= member.University %></p>
+            <p><strong>Email:</strong> <%= member.Email %></p>
+            <p><strong>Phone:</strong> <%= member.Phone %></p>
+            <p><strong>Technical Committee:</strong> <%= member.Technical_Committee ? 'Yes' : 'No' %></p>
+            <p><strong>Non-Technical Committee:</strong> <%= member.NonTechnical_Committee ? 'Yes' : 'No' %></p>
+            <% if (member.image) { %>
+                <img src="<%= member.image %>" alt="Member Image" class="member-image">
+            <% } %>
+        </div>
+
+        <div class="actions">
+            <!-- Edit Button -->
+            <a href="/edit/<%= member._id %>" class="btn btn-edit">Edit</a>
+            
+            <!-- Delete Button -->
+            <form action="/delete/<%= member._id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this member?');">
+                <button type="submit" class="btn btn-delete">Delete</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
