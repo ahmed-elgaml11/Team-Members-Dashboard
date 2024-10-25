@@ -19,6 +19,8 @@ app.set('views',__dirname+'/views')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+const { check, validationResult } = require('express-validator');
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb){
         cb (null,path.join(__dirname,'uploads'))
@@ -70,7 +72,20 @@ app.get('/add', (req, res) => {
     res.render('form')
 })
 
-app.post('/add', upload.single('image'), (req, res) => {
+
+
+app.post('/add', upload.single('image'),[
+    check('Name').isLength({min: 7,max: 60 }).withMessage('the name must be between 7:60 characters '),
+    check('Age').isInt({min: 18, max: 30}).withMessage('age must be between 18 and 30'),
+    check('Email').matches(/^[a-zA-Z][a-zA-Z0-0._]*@gmail\.com$/).withMessage('Must be a valid email'),
+    check('Phone').matches(/^01[0,1,2,5][0-9]{8}$/).withMessage('Must be a valid phone number.')
+
+], (req, res) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return res.status(400).json({errors:errors.array()})
+    }
+
     let data ={
         Name: req.body.Name,
         Age: req.body.Age,
@@ -137,7 +152,13 @@ app.get('/edit/:id', (req, res) => {
 
 })
 
-app.post('/edit/:id', upload.single('image'), (req, res) => {
+app.post('/edit/:id', upload.single('image'), [
+    check('Name').isLength({min: 7,max: 60 }).withMessage('the name must be between 7:60 characters '),
+    check('Age').isInt({min: 18, max: 30}).withMessage('age must be between 18 and 30'),
+    check('Email').matches(/^[a-zA-Z][a-zA-Z0-0._]*@gmail\.com$/).withMessage('Must be a valid email'),
+    check('Phone').matches(/^01[0,1,2,5][0-9]{8}$/).withMessage('Must be a valid phone number.')
+
+], (req, res) => {
     let data = {
         Name: req.body.Name,
         Age: req.body.Age,
@@ -176,3 +197,7 @@ app.post('/delete/:id', (req, res) => {
     })
     .catch(err=>res.status(500).json({error:`error deleting this member:${err}`}))
 })
+
+app.use((req,res)=>{
+    res.status(404).send('not found page')
+})  
