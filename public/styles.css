@@ -211,3 +211,54 @@ input[type="checkbox"] {
 .btn-submit:hover {
     background-color: #218838;
 }
+/* Styles to make the image fit well on the page */
+.image-container img {
+    width: 100%;        /* Adjust to full container width */
+    max-width: 200px;   /* Limits the image size to prevent it from becoming too large */
+    height: auto;       /* Maintains the image's aspect ratio */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    margin-top: 10px;   /* Adds space above the image */
+    display: block;
+}
+/* Actions container to align Edit and Delete buttons */
+.actions {
+    display: flex;
+    justify-content: space-between; /* Positions Delete button on the right */
+    align-items: center;
+    margin-top: 10px;
+    padding: 0 20px; /* Adds padding on both sides for a cleaner look */
+}
+
+/* Styling for Edit and Delete buttons */
+.actions .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+}
+
+/* Edit button style */
+.actions .btn-edit {
+    background-color: #28a745; /* Green color */
+}
+
+.actions .btn-edit:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05);
+}
+
+/* Delete button style */
+.actions .btn-delete {
+    background-color: #dc3545; /* Red color */
+    border: none;
+}
+
+.actions .btn-delete:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: scale(1.05);
+}

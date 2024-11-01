@@ -1,7 +1,6 @@
 const mongoos = require('mongoose');
 const Schema = mongoos.Schema
-
-const memberschema = new Schema({
+const memberSchema = new Schema({
     Name:{
         type: String,
         required: true
@@ -36,7 +35,6 @@ const memberschema = new Schema({
     image:{
         type: String,
     }
-
-})
-const Member = mongoos.model('Member',memberschema)
+},{ timestamps: true })  
+const Member = mongoos.model('Member',memberSchema)
 module.exports = Member;

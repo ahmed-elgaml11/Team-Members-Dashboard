@@ -15,9 +15,7 @@
         </div>
         
         <% if (members.length > 0) { %>
-            <div class="members-grid">
-                <% members.forEach(member => { %>
-                    <div class="member-card">
+                <% members.forEach((member) => { %>
                         <h2><%= member.Name %></h2>
                         <p><strong>Age:</strong> <%= member.Age %></p>
                         <p><strong>University:</strong> <%= member.University %></p>
@@ -27,11 +25,9 @@
                             <a href="/details/<%= member._id %>" class="btn btn-view">View Details</a>
                         </div>
                         <p>------------------------------------------------------------------------------------------------------</p>
-                    </div>
                 <% }) %>
-            </div>
         <% } else { %>
-            <p>No members available.</p>
+            <h2>No members yet.</h2>
         <% } %>
 
     </div>

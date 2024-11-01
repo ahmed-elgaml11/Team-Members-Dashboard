@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Data Entry Form</title>
-    <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="/styles.css"> 
 </head>
 <body>
     <div class="container">
         <h1>Member Data Entry Form</h1>
         
-        <!-- Form for collecting member data -->
-        <form action="/add" method="POST" enctype="multipart/form-data"> <!-- enctype is important for image upload -->
+        <form action="/add" method="POST" enctype="multipart/form-data"> 
 
             <!-- Name -->
             <label for="Name">Name:</label>
@@ -43,7 +42,7 @@
 
             <!-- Image Upload -->
             <label for="image">Upload Profile Image (Optional):</label>
-            <input type="file" id="image_upload" name="image" accept="image/*">
+            <input type="file" id="image" name="image" accept="image/*">
 
             <!-- Submit Button -->
             <button type="submit" class="btn btn-submit">Submit Member Info</button>

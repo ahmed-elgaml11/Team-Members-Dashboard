@@ -11,7 +11,7 @@
         <h1>Edit Member Information</h1>
 
         <!-- Form for editing member data -->
-        <form action="/edit/<%= member._id %>" method="POST" enctype="multipart/form-data"> <!-- enctype important for image upload -->
+        <form action="/edit/<%= member._id %>" method="POST" enctype="multipart/form-data"> 
 
             <!-- Name -->
             <label for="Name">Name:</label>
@@ -35,11 +35,11 @@
 
             <!-- Technical Committee -->
             <label for="Technical_Committee">Technical Committee:</label>
-            <input type="checkbox" id="Technical_Committee" name="Technical_Committee" <% if (member.Technical_Committee) { %>checked<% } %>>
+            <input type="checkbox" id="Technical_Committee" name="Technical_Committee" <% if (member.Technical_Committee)%>  checked  >
 
             <!-- Non-Technical Committee -->
             <label for="NonTechnical_Committee">Non-Technical Committee:</label>
-            <input type="checkbox" id="NonTechnical_Committee" name="NonTechnical_Committee" <% if (member.NonTechnical_Committee) { %>checked<% } %>>
+            <input type="checkbox" id="NonTechnical_Committee" name="NonTechnical_Committee" <% if (member.NonTechnical_Committee)  %> checked>
 
             <!-- Image Upload -->
             <label for="image">Upload New Profile Image (Optional):</label>

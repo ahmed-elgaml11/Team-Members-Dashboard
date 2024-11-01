@@ -9,7 +9,6 @@
 <body>
     <div class="container">
         <h1>Member Details</h1>
-        <div class="member-info">
             <h2><%= member.Name %></h2>
             <p><strong>Age:</strong> <%= member.Age %></p>
             <p><strong>University:</strong> <%= member.University %></p>
@@ -18,9 +17,11 @@
             <p><strong>Technical Committee:</strong> <%= member.Technical_Committee ? 'Yes' : 'No' %></p>
             <p><strong>Non-Technical Committee:</strong> <%= member.NonTechnical_Committee ? 'Yes' : 'No' %></p>
             <% if (member.image) { %>
-                <img src="<%= member.image %>" alt="Member Image" class="member-image">
+                <div class="image-container">
+                    <img src="/<%= member.image %>" alt="Profile Image">
+                </div>
+                
             <% } %>
-        </div>
 
         <div class="actions">
             <!-- Edit Button -->
