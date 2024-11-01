@@ -13,7 +13,6 @@ const { check, validationResult } = require('express-validator');
 
 
 
-// router.use(express.static(path.join(__dirname,'..', 'uploads')));
 
 
 const storage = multer.diskStorage({

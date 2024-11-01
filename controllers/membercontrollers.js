@@ -129,14 +129,13 @@ delete_member = (req, res) => {
     .then((member) => {
         const pathtodelete = path.join(__dirname,'..','uploads',member.image)
         Member.findByIdAndDelete(id)
-        .then((member) => {
+        .then(() => {
             fs.unlink(pathtodelete,(err)=> {
                 if(err){
                     return  console.error('Error deleting file:', err);
                 }
-                res.status(200).redirect('/');
             })
-            
+            res.status(200).redirect('/'); 
         })
         .catch(err=>res.status(500).json({error:`error deleting this member:${err}`}))
     })
